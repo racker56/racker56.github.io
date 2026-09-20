@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="侦探游戏 - 沉浸式推理体验平台，提供逻辑解谜、密室逃脱与刑侦模拟游戏推荐，助你成为推理大师。">
+    <meta name="keywords" content="侦探游戏,逻辑推理,密室逃脱,解谜游戏,模拟探案">
+    <title>侦探游戏-沉浸式推理与解谜体验平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #f59e0b;
+            --accent-hover: #d97706;
+            --border-color: #334155;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: var(--spacing-md) var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-primary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .btn-subscribe {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-subscribe:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%), 
+                        url('https://picsum.photos/seed/detectivebg/1920/1080') center/cover no-repeat;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-stats span strong {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-lg);
+            border-left: 4px solid var(--accent-color);
+            padding-left: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-link {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #334155;
+        }
+
+        .card-body {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            background: rgba(245, 158, 11, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .rating {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .btn-play {
+            background-color: var(--text-primary);
+            color: var(--bg-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .btn-play:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #162032;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: var(--spacing-lg);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            display: inline-block;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .guide-item {
+            background-color: var(--card-bg);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .guide-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .guide-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .guide-sidebar {
+            background-color: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .guide-sidebar h3 {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.2rem;
+        }
+
+        .sidebar-list li {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .sidebar-list a {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b1120;
+            padding: var(--spacing-lg) 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-col ul li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-col a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            nav ul {
+                gap: var(--spacing-md);
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .guide-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span>🕵️‍♂️</span> 侦探游戏
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">模拟探案</a></li>
+                    <li><a href="#">逻辑解谜</a></li>
+                    <li><a href="#">密室逃脱</a></li>
+                    <li><a href="#">游戏攻略</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-subscribe">订阅更新</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>点燃你的推理之魂</h1>
+                <p>精选全球最烧脑的侦探游戏与模拟探案体验，在虚拟现场还原真相，锻炼逻辑思维。</p>
+                <div class="hero-stats">
+                    <span><strong>120+</strong> 精选游戏</span>
+                    <span><strong>50万+</strong> 推理爱好者</span>
+                    <span><strong>24/7</strong> 在线挑战</span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: center;">
+                    <a href="#games" class="btn-subscribe" style="padding: 12px 30px; font-size: 1rem;">开始推理</a>
+                    <a href="#guide" style="padding: 12px 30px; border: 1px solid var(--text-secondary); border-radius: 4px; color: var(--text-primary);">阅读指南</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Games -->
+        <section id="games" class="container">
+            <div class="section-title">
+                <span>热门侦探游戏推荐</span>
+                <a href="#" class="section-link">查看全部 ></a>
+            </div>
+            
+            <div class="game-grid">
+                <!-- Game Card 1 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/detective1/400/300" alt="游戏封面" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">模拟探案</span>
+                        <h2 class="card-title">午夜侦探事务所</h2>
+                        <p class="card-desc">扮演私家侦探，在深夜的城市中调查离奇案件。通过搜集线索、审讯嫌疑人来还原真相。</p>
+                        <div class="card-footer">
+                            <span class="rating">⭐ 9.2</span>
+                            <a href="#" class="btn-play">立即体验</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Game Card 2 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/detective2/400/300" alt="游戏封面" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">逻辑解谜</span>
+                        <h2 class="card-title">机械迷城：重案</h2>
+                        <p class="card-desc">在一个充满蒸汽朋克风格的废墟中寻找失踪的伙伴，解开复杂的机械谜题。</p>
+                        <div class="card-footer">
+                            <span class="rating">⭐ 9.5</span>
+                            <a href="#" class="btn-play">立即体验</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Game Card 3 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/detective3/400/300" alt="游戏封面" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">密室逃脱</span>
+                        <h2 class="card-title">古堡惊魂夜</h2>
+                        <p class="card-desc">被困在一座古老庄园的密室中，寻找出口并揭开家族诅咒的真相。</p>
+                        <div class="card-footer">
+                            <span class="rating">⭐ 8.8</span>
+                            <a href="#" class="btn-play">立即体验</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Game Card 4 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/detective4/400/300" alt="游戏封面" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">文字推理</span>
+                        <h2 class="card-title">剧本杀：无人生还</h2>
+                        <p class="card-desc">沉浸式文字冒险，与好友组队扮演不同角色，在推理中找出隐藏的凶手。</p>
+                        <div class="card-footer">
+                            <span class="rating">⭐ 9.0</span>
+                            <a href="#" class="btn-play">立即体验</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title" style="justify-content: center; border: none; margin-bottom: var(--spacing-lg);">
+                    <span>为什么选择侦探游戏？</span>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🧠</div>
+                        <h3 class="feature-title">锻炼逻辑思维</h3>
+                        <p class="feature-text">通过层层递进的谜题，提升分析问题和解决问题的能力。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎭</div>
+                        <h3 class="feature-title">沉浸式剧情</h3>
+                        <p class="feature-text">体验电影级的叙事手法，感受身临其境的破案快感。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤝</div>
+                        <h3 class="feature-title">社交互动</h3>
+                        <p class="feature-text">与好友合作或对抗，在推理中增进友谊。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="container">
+            <div class="section-title">
+                <span>侦探游戏入门指南</span>
+            </div>
+            <div class="guide-section">
+                <div class="guide-list">
+                    <div class="guide-item">
+                        <h3>🔍 如何培养观察力？</h3>
+                        <p>在玩侦探游戏时，不要只关注剧情发展。学会观察环境中的每一个细节，包括物品的摆放位置、角色的微表情以及对话中的逻辑漏洞。养成记录线索的习惯，这能极大提高推理效率。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h3>🧩 常见的推理技巧</h3>
+                        <p>学会使用排除法。在面对多个嫌疑人或多种可能性时，先排除那些明显不可能的选项。此外，关注“不在场证明”的漏洞和动机分析，往往能直击案件核心。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h3>⚠️ 注意事项</h3>
+                        <p>部分高难度侦探游戏包含恐怖或惊悚元素，建议在光线充足的环境下游玩。遇到卡关时，适当查阅攻略，避免因挫败感影响体验。</p>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <h3>分类浏览</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">🔥 热门榜单</a></li>
+                        <li><a href="#">🆕 最新上线</a></li>
+                        <li><a href="#">📱 手机端推荐</a></li>
+                        <li><a href="#">💻 PC/主机大作</a></li>
+                        <li><a href="#">🧩 小游戏合集</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>侦探游戏</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px;">
+                    致力于为推理爱好者提供最优质的游戏资源和攻略指南。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>游戏分类</h4>
+                <ul>
+                    <li><a href="#">模拟探案</a></li>
+                    <li><a href="#">逻辑解谜</a></li>
+                    <li><a href="#">密室逃脱</a></li>
+                    <li><a href="#">文字冒险</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">游戏评测</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">微博话题</a></li>
+                    <li><a href="#">B站直播</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 侦探游戏平台. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
