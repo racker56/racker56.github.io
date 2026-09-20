@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="虐妃全文阅读 - 提供高质量古言虐恋小说在线阅读服务。收录经典虐心妃子逆袭、宫廷权谋、前世今生等热门题材，章节完整，更新及时，支持手机与电脑端流畅阅读。">
+    <meta name="keywords" content="虐妃全文阅读,古言小说,虐心小说,宫廷小说,在线阅读">
+    <title>虐妃全文阅读-精品古言虐恋小说与宫廷权谋故事</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --primary-dark: #6c3483;
+            --accent-color: #c0392b;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 10px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 5px 15px;
+            width: 250px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .section-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        /* Book Card */
+        .book-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .book-cover {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background-color: #eee;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .book-card:hover .book-cover img {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(192, 57, 43, 0.9);
+            color: white;
+            padding: 2px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .book-info {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 54px;
+        }
+
+        .book-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .book-intro {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .btn-read {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-read:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Sidebar & Main Content */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Ranking List */
+        .ranking-list {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 15px;
+            color: var(--text-secondary);
+        }
+
+        .rank-num.top-1 { color: #e74c3c; font-size: 20px; }
+        .rank-num.top-2 { color: #f39c12; font-size: 18px; }
+        .rank-num.top-3 { color: #f1c40f; font-size: 18px; }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .rank-stats {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #34495e;
+            color: #bdc3c7;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #465f75;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+
+            .book-cover {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span>❀</span> 虐妃全文阅读
+        </a>
+        <nav class="nav-menu">
+            <a href="#" class="active">首页</a>
+            <a href="#">宫廷权谋</a>
+            <a href="#">前世今生</a>
+            <a href="#">冷面王爷</a>
+            <a href="#">排行榜</a>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索书名、作者...">
+            <button>🔍</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>沉浸式阅读，体验极致虐恋</h1>
+            <p>海量古言虐心小说，章节完整，更新迅速。在这里，读懂那些刻骨铭心的爱恨情仇。</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Left Column: Book Grid -->
+            <div class="main-content">
+                <div class="section-header">
+                    <h2 class="section-title">今日推荐</h2>
+                    <a href="#" class="section-more">查看更多 ></a>
+                </div>
+
+                <div class="grid-container">
+                    <!-- Book 1 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <span class="tag">热门</span>
+                            <img src="https://picsum.photos/seed/novel1/300/400" alt="冷宫弃妃">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">冷宫弃妃：王爷请自重</a></h3>
+                            <div class="book-meta">作者：墨染青衣 | 分类：宫廷</div>
+                            <p class="book-intro">她曾是受尽宠爱的嫡女，一朝落难，沦为冷宫弃妃。他高高在上，视她如草芥，却不知她早已改头换面。当她手握权势归来，这场虐恋究竟谁先沦陷？</p>
+                            <a href="#" class="btn-read">立即阅读</a>
+                        </div>
+                    </article>
+
+                    <!-- Book 2 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <span class="tag">连载</span>
+                            <img src="https://picsum.photos/seed/novel2/300/400" alt="摄政王的掌心娇">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">摄政王的掌心娇：夜夜宠</a></h3>
+                            <div class="book-meta">作者：苏清歌 | 分类：重生</div>
+                            <p class="book-intro">前世，她为了他赔上性命，却换来他的一杯毒酒。重生归来，她发誓要远离那个男人。可谁能告诉她，这个满身戾气的男人为什么总是粘着她？</p>
+                            <a href="#" class="btn-read">立即阅读</a>
+                        </div>
+                    </article>
+
+                    <!-- Book 3 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <span class="tag">完结</span>
+                            <img src="https://picsum.photos/seed/novel3/300/400" alt="宫墙柳">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">宫墙柳：后妃的生存法则</a></h3>
+                            <div class="book-meta">作者：纳兰初雪 | 分类：宫斗</div>
+                            <p class="book-intro">深宫之中，步步惊心。她只想安稳度日，却因一卷《诗经》引来帝王侧目。在爱与恨的边缘，她该如何抉择？是做笼中鸟，还是做那逆风而上的柳？</p>
+                            <a href="#" class="btn-read">立即阅读</a>
+                        </div>
+                    </article>
+
+                    <!-- Book 4 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <span class="tag">虐心</span>
+                            <img src="https://picsum.photos/seed/novel4/300/400" alt="错嫁良缘：王爷别来无恙">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">错嫁良缘：王爷别来无恙</a></h3>
+                            <div class="book-meta">作者：顾北辞 | 分类：言情</div>
+                            <p class="book-intro">大婚之夜，新郎却死在了她的洞房花烛夜。她背负着弑夫的罪名，流放千里。三年后，她带着儿子归来，誓要查清真相，让仇人血债血偿。</p>
+                            <a href="#" class="btn-read">立即阅读</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-header">
+                    <h2 class="section-title">最新章节</h2>
+                    <a href="#" class="section-more">更多章节 ></a>
+                </div>
+
+                <div class="grid-container">
+                     <!-- Book 5 -->
+                     <article class="book-card">
+                        <div class="book-cover">
+                            <span class="tag">更新</span>
+                            <img src="https://picsum.photos/seed/novel5/300/400" alt="暴君的替身妃">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">暴君的替身妃：夜夜笙歌</a></h3>
+                            <div class="book-meta">作者：夜未央 | 分类：宫廷</div>
+                            <p class="book-intro">她是将军之女，也是他的替身。他爱的从来都不是她，而是她死去的白月光。直到她心死离去，他才发现自己早已深陷其中，无法自拔。</p>
+                            <a href="#" class="btn-read">立即阅读</a>
+                        </div>
+                    </article>
+
+                    <!-- Book 6 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <span class="tag">热门</span>
+                            <img src="https://picsum.photos/seed/novel6/300/400" alt="王爷的独宠悍妃">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">王爷的独宠悍妃：将军请留步</a></h3>
+                            <div class="book-meta">作者：苏小小 | 分类：穿越</div>
+                            <p class="book-intro">现代特种兵穿越成不受宠的废柴王妃。她手撕白莲，脚踩绿茶，一路升级打怪。那个原本对她不屑一顾的王爷，怎么就变成了粘人的小尾巴？</p>
+                            <a href="#" class="btn-read">立即阅读</a>
+                        </div>
+                    </article>
+
+                    <!-- Book 7 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <span class="tag">虐恋</span>
+                            <img src="https://picsum.photos/seed/novel7/300/400" alt="错爱一生">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">错爱一生：王爷的掌中物</a></h3>
+                            <div class="book-meta">作者：林浅浅 | 分类：言情</div>
+                            <p class="book-intro">为了家族荣耀，她甘愿嫁给一个残暴的皇子。她以为这是交易，他却以为这是真爱。当真相揭开，她该何去何从？</p>
+                            <a href="#" class="btn-read">立即阅读</a>
+                        </div>
+                    </article>
+
+                    <!-- Book 8 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <span class="tag">完结</span>
+                            <img src="https://picsum.photos/seed/novel8/300/400" alt="盛世红妆">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title"><a href="#">盛世红妆：摄政王的宠妃</a></h3>
+                            <div class="book-meta">作者：月下蝶影 | 分类：古言</div>
+                            <p class="book-intro">她是一介女流，却心怀天下。他是一代枭雄，权倾朝野。两人联手，共创盛世。只是这盛世繁华之下，是否藏着不为人知的秘密？</p>
+                            <a href="#" class="btn-read">立即阅读</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Right Column: Ranking -->
+            <aside class="sidebar">
+                <div class="section-header">
+                    <h2 class="section-title">热门榜单</h2>
+                </div>
+                <div class="ranking-list">
+                    <div class="ranking-item">
+                        <span class="rank-num top-1">1</span>
+                        <div class="rank-info">
+                            <div class="rank-title"><a href="#">冷宫弃妃：王爷请自重</a></div>
+                            <div class="rank-stats">1280万人气</div>
+                        </div>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num top-2">2</span>
+                        <div class="rank-info">
+                            <div class="rank-title"><a href="#">摄政王的掌心娇</a></div>
+                            <div class="rank-stats">1150万人气</div>
+                        </div>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num top-3">3</span>
+                        <div class="rank-info">
+                            <div class="rank-title"><a href="#">宫墙柳：后妃的生存法则</a></div>
+                            <div class="rank-stats">980万人气</div>
+                        </div>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">4</span>
+                        <div class="rank-info">
+                            <div class="rank-title"><a href="#">错嫁良缘：王爷别来无恙</a></div>
+                            <div class="rank-stats">850万人气</div>
+                        </div>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">5</span>
+                        <div class="rank-info">
+                            <div class="rank-title"><a href="#">暴君的替身妃</a></div>
+                            <div class="rank-stats">720万人气</div>
+                        </div>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">6</span>
+                        <div class="rank-info">
+                            <div class="rank-title"><a href="#">王爷的独宠悍妃</a></div>
+                            <div class="rank-stats">650万人气</div>
+                        </div>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">7</span>
+                        <div class="rank-info">
+                            <div class="rank-title"><a href="#">错爱一生：王爷的掌中物</a></div>
+                            <div class="rank-stats">580万人气</div>
+                        </div>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">8</span>
+                        <div class="rank-info">
+                            <div class="rank-title"><a href="#">盛世红妆：摄政王的宠妃</a></div>
+                            <div class="rank-stats">520万人气</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-header" style="margin-top: 40px;">
+                    <h2 class="section-title">分类导航</h2>
+                </div>
+                <div class="ranking-list" style="padding: 10px;">
+                    <ul style="font-size: 14px;">
+                        <li style="margin-bottom: 8px;"><a href="#">👑 宫廷权谋</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">💔 虐恋情深</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">🔮 重生复仇</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">🗡️ 铁血将军</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">🎭 前世今生</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <p style="font-size: 14px; line-height: 1.8;">虐妃全文阅读致力于为用户提供最优质、最完整的古言小说阅读体验。我们拥有庞大的书库和专业的编辑团队，确保每一部作品都能带给您最真挚的情感共鸣。</p>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">宫廷小说</a></li>
+                    <li><a href="#">虐心小说</a></li>
+                    <li><a href="#">重生小说</a></li>
+                    <li><a href="#">穿越小说</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">阅读指南</a></li>
+                    <li><a href="#">投稿通道</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>下载APP</h4>
+                <p style="font-size: 12px; color: #95a5a6;">随时随地，想读就读。</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2023 虐妃全文阅读. All Rights Reserved. </p>
+            <p style="margin-top: 10px; font-size: 12px; color: #7f8c8d;">本站内容均为网友上传，仅供学习交流，请于下载后24小时内删除。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
