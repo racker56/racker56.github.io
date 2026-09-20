@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刻晴大战史莱姆 - 璃月七星战斗记录与高清图集</title>
+    <meta name="description" content="本站提供原神角色刻晴与史莱姆战斗的详细记录、战斗技巧分析及高清同人图集。探索雷元素在战斗中的运用，了解如何高效击败不同属性的史莱姆。">
+    <meta name="keywords" content="刻晴大战史莱姆,原神攻略,刻晴技巧,史莱姆打法,原神同人图">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #3498db;
+            --accent-color: #f1c40f;
+            --dark-bg: #1a1a2e;
+            --card-bg: #16213e;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(22, 33, 62, 0.95);
+            border-bottom: 2px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .search-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .search-btn:hover {
+            background: #732d91;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(26,26,46,1)), url('https://picsum.photos/seed/keqing_slime/1600/900') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(142, 68, 173, 0.6);
+        }
+
+        /* Main Layout */
+        main {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Strategy Grid */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: var(--primary-color);
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #0f3460;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            background: rgba(52, 152, 219, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--accent-color);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Interactive Chart Section */
+        .chart-section {
+            background-color: #16213e;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .chart-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .chart-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .stat-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stat-icon {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .stat-red { background-color: #ff6b6b; }
+        .stat-blue { background-color: #4ecdc4; }
+        .stat-purple { background-color: #a55eea; }
+
+        .chart-visual {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(0,0,0,0.2);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 250px;
+        }
+
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 20%;
+        }
+
+        .bar {
+            width: 100%;
+            background: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+            border-radius: 5px 5px 0 0;
+            transition: height 1s ease-out;
+            position: relative;
+        }
+
+        .bar::after {
+            content: attr(data-value);
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+        }
+
+        .bar-label {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px 10px 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            display: none;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f1526;
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .header-inner { flex-direction: column; height: auto; padding: 15px 0; }
+            nav ul { margin-top: 15px; gap: 15px; }
+            .chart-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>⚡</span> 璃月战记
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#strategy">战斗攻略</a></li>
+                    <li><a href="#gallery">高清图集</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="search-btn">搜索角色</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>刻晴大战史莱姆</h1>
+            <p>探索雷元素在战斗中的极致运用，全方位解析刻晴应对史莱姆的高效打法与策略。</p>
+            <a href="#strategy" class="cta-btn">查看实战攻略</a>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- 战斗策略部分 -->
+        <section id="strategy" class="section-title">
+            <h2>核心战斗策略</h2>
+            <p style="color: var(--text-muted); margin-top: 10px;">针对不同属性史莱姆的应对方案</p>
+        </section>
+
+        <div class="strategy-grid">
+            <article class="card">
+                <div class="card-img">
+                    <img src="https://picsum.photos/seed/electro_slime/400/300" alt="雷史莱姆">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">元素克制</span>
+                    <h3>雷史莱姆弱点分析</h3>
+                    <p>雷史莱姆拥有绝缘外壳，常规物理攻击效果不佳。刻晴的E技能（星雷切）可以迅速破盾。建议利用元素战技触发超导反应，大幅降低其防御力。</p>
+                    <a href="#" class="card-link">阅读详细攻略 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img">
+                    <img src="https://picsum.photos/seed/pyro_slime/400/300" alt="火史莱姆">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">反应机制</span>
+                    <h3>火史莱姆的应对之道</h3>
+                    <p>火史莱姆会制造火场环境。刻晴的平A第四段具有雷元素附魔，配合水系角色（如行秋）可以触发蒸发反应，瞬间秒杀小型史莱姆。</p>
+                    <a href="#" class="card-link">查看配队推荐 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img">
+                    <img src="https://picsum.photos/seed/geo_slime/400/300" alt="岩史莱姆">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">实战技巧</span>
+                    <h3>岩史莱姆与水晶簇</h3>
+                    <p>岩史莱姆会召唤水晶簇，需要优先清理。刻晴的Q技能（天街巡游）可以全屏清理水晶簇，并利用结晶盾保护自身，是应对群怪的神技。</p>
+                    <a href="#" class="card-link">学习爆发技巧 &rarr;</a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 数据可视化部分 -->
+        <section class="chart-section">
+            <div class="container">
+                <div class="chart-container">
+                    <div class="chart-info">
+                        <h3>刻晴 VS 史莱姆：胜率与耗时统计</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">
+                            基于大量实战数据整理，不同属性史莱姆对刻晴的挑战程度存在显著差异。
+                        </p>
+                        <ul class="stat-list">
+                            <li><span class="stat-icon stat-red"></span> 火史莱姆：蒸发反应下耗时 <strong>3.5秒</strong></li>
+                            <li><span class="stat-icon stat-blue"></span> 水史莱姆：超导反应下耗时 <strong>4.2秒</strong></li>
+                            <li><span class="stat-icon stat-purple"></span> 雷史莱姆：绝缘外壳需 <strong>5.8秒</strong></li>
+                            <li><span class="stat-icon stat-red"></span> 岩史莱姆：水晶簇清理耗时 <strong>6.5秒</strong></li>
+                        </ul>
+                    </div>
+                    <div class="chart-visual">
+                        <div class="bar-group">
+                            <div class="bar" style="height: 30%; background: #ff6b6b;" data-value="3.5s"></div>
+                            <span class="bar-label">火史莱姆</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 42%; background: #4ecdc4;" data-value="4.2s"></div>
+                            <span class="bar-label">水史莱姆</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 58%; background: #a55eea;" data-value="5.8s"></div>
+                            <span class="bar-label">雷史莱姆</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 65%; background: #ff6b6b;" data-value="6.5s"></div>
+                            <span class="bar-label">岩史莱姆</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 高清图集部分 -->
+        <section id="gallery" class="section-title">
+            <h2>高清同人图集</h2>
+            <p style="color: var(--text-muted); margin-top: 10px;">收录玩家创作的精彩瞬间</p>
+        </section>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://picsum.photos/seed/keqing1/300/400" alt="刻晴战斗瞬间">
+                <div class="gallery-overlay">
+                    <h4>星落之雷</h4>
+                    <p style="font-size: 0.8rem; color: #ddd;">作者：旅行者A</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/seed/keqing2/300/400" alt="刻晴闪避">
+                <div class="gallery-overlay">
+                    <h4>瞬步闪避</h4>
+                    <p style="font-size: 0.8rem; color: #ddd;">作者：雷电影</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/seed/keqing3/300/400" alt="刻晴大招">
+                <div class="gallery-overlay">
+                    <h4>天街巡游</h4>
+                    <p style="font-size: 0.8rem; color: #ddd;">作者：派蒙</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/seed/keqing4/300/400" alt="刻晴与史莱姆">
+                <div class="gallery-overlay">
+                    <h4>日常狩猎</h4>
+                    <p style="font-size: 0.8rem; color: #ddd;">作者：胡桃</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 部分 -->
+        <section id="faq" class="section-title">
+            <h2>常见问题解答</h2>
+        </section>
+
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question">刻晴打史莱姆需要什么圣遗物？</div>
+                <div class="faq-answer">
+                    推荐使用“绝缘之旗印”四件套，可以大幅提升元素爆发伤害，非常适合刻晴应对需要爆发输出的史莱姆战。副词条首选元素充能效率。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">为什么我的刻晴打史莱姆伤害很低？</div>
+                <div class="faq-answer">
+                    可能是元素附着不足。建议在武器和圣遗物上适当堆叠元素充能效率，确保E技能和Q技能的循环。同时注意普攻第四段必须命中才能触发雷附魔。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">岩史莱姆的水晶簇怎么处理最快？</div>
+                <div class="faq-answer">
+                    刻晴的Q技能（天街巡游）具有全屏攻击特效，可以瞬间清理岩史莱姆召唤的水晶簇，这是处理岩史莱姆最核心的技巧。
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo">
+                        <span>⚡</span> 璃月战记
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">
+                        专注原神角色攻略与同人创作分享平台。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>攻略指南</h4>
+                    <ul>
+                        <li><a href="#">角色培养</a></li>
+                        <li><a href="#">元素反应</a></li>
+                        <li><a href="#">深渊攻略</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">原神Wiki</a></li>
+                        <li><a href="#">米游社社区</a></li>
+                        <li><a href="#">官方公告</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 璃月战记. All rights reserved. 本站内容仅供学习交流，不代表米哈游官方立场。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 简单的滚动动画观察器
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // 应用动画到卡片
+            const cards = document.querySelectorAll('.card, .gallery-item');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.5s ease, transform 0.5s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+  </html>
